@@ -1,0 +1,78 @@
+control:
+  fastapi:
+    host: 0.0.0.0
+    port: 8901
+  conversion:
+    from: sbus
+    to: mavlink
+    sbus:
+      serial: /dev/ttyUSB0
+      baudrate: 57600
+      state: True
+    websocket:
+      ip: 127.0.0.1
+      port: 8910
+    mavlink:
+      binding: ip
+      ip: 127.0.0.1
+      port: 14550
+      serial: /dev/ttyS0
+      baud: 57600
+  algo:
+    they:
+      ip: 127.0.0.1
+      port: 20000
+    me:
+      ip: 0.0.0.0
+      port: 20001
+  track:
+    xpid:
+      kp: 0.8
+      ki: 0.2
+      kd: 0.1
+    ypid:
+      kp: 0.4
+      ki: 0.15
+      kd: 0.1
+    yawpid:
+      kp: 0.4
+      ki: 0.15
+      kd: 0.1
+    servo:
+      kp: 0.1
+      ki: 0.01
+      kd: 0.1
+  speed:
+    max:
+      vx: 200
+      vy: 200
+      vz: 100
+      vd: 10
+    xpid:
+      kp: 0.7
+      ki: 0.08
+      kd: 0.15
+    ypid:
+      kp: 0.7
+      ki: 0.08
+      kd: 0.15
+    zpid:
+      kp: 1.8
+      ki: 0.15
+      kd: 0.4
+    dpid:
+      kp: 0.08
+      ki: 0.05
+      kd: 0.15
+  servo:
+    switch: False
+    pwm_chip: 3
+    track:
+      ypid:
+        kp: 0.01
+        ki: 0.008
+        kd: 0.01
+  log:
+    switch: True
+    type: print
+    interval: 500
