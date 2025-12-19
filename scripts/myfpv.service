@@ -1,0 +1,16 @@
+[Unit]
+Description=Control my FPV service
+After=network.target multi-user.target
+Wants=network.target multi-user.target
+
+[Service]
+ExecStart=/bin/bash /home/cat/Codes/control/scripts/start.sh
+Restart=on-failure
+Type=forking
+# Restart=never alwary
+StandardOutput=append:/var/log/myfpv_service.log
+StandardError=append:/var/log/myfpv_service.log
+# truncate 清空写入
+
+[Install]
+WantedBy=multi-user.target
